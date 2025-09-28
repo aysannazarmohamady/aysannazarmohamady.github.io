@@ -585,42 +585,7 @@
             opacity: 0.8;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 23px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0%;
-            }
 
-            .chat-input-container {
-                flex-direction: column;
-            }
-        }
 
         /* Animations */
         @keyframes fadeInUp {
@@ -663,7 +628,7 @@
     <header>
         <nav class="container">
             <div class="logo">Aysan Nazarmohammadi</div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -671,6 +636,9 @@
                 <li><a href="#chatbot">AI Assistant</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
@@ -938,6 +906,42 @@
     </section>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('nav')) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -962,7 +966,7 @@
             }
         });
 
-        // Animate elements on scroll
+        // Animate elements on scroll with better performance
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -972,6 +976,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target); // Stop observing once animated
                 }
             });
         }, observerOptions);
@@ -1031,12 +1036,12 @@
             }
         });
 
-        // Auto-resize chat input
+        // Auto-resize chat input and prevent zoom on iOS
         chatInput.addEventListener('input', function() {
             if (this.value.length > 400) {
                 this.style.fontSize = '0.9rem';
             } else {
-                this.style.fontSize = '1rem';
+                this.style.fontSize = window.innerWidth <= 768 ? '16px' : '1rem';
             }
         });
 
@@ -1045,6 +1050,53 @@
             setTimeout(() => {
                 addMessage("👋 Welcome! I can answer questions about Aysan's projects, experience, or technical skills.");
             }, 2000);
+        });
+
+        // Viewport height fix for mobile browsers
+        function setVhProperty() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        setVhProperty();
+        window.addEventListener('resize', setVhProperty);
+        window.addEventListener('orientationchange', setVhProperty);
+
+        // Lazy loading for better performance
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Performance optimization: Debounce scroll events
+        let ticking = false;
+        function updateOnScroll() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateOnScroll);
+                ticking = true;
+            }
         });
 
         // API Integration placeholder (to be replaced with actual API)
