@@ -42,27 +42,34 @@
 
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.99);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary-purple);
+            text-shadow: 0 1px 3px rgba(139, 92, 246, 0.3);
         }
 
         .nav-links {
@@ -74,13 +81,16 @@
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
         .nav-links a:hover {
             color: var(--primary-purple);
+            background: rgba(139, 92, 246, 0.1);
         }
 
         .nav-links a::after {
@@ -956,15 +966,15 @@
             });
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
+        // Header scroll effect with better visibility
+        function updateHeaderOnScroll() {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.classList.remove('scrolled');
             }
-        });
+        }
 
         // Animate elements on scroll with better performance
         const observerOptions = {
@@ -1083,12 +1093,7 @@
         // Performance optimization: Debounce scroll events
         let ticking = false;
         function updateOnScroll() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
+            updateHeaderOnScroll();
             ticking = false;
         }
 
