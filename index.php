@@ -72,8 +72,8 @@
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 8px;
             display: flex;
@@ -81,7 +81,11 @@
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .logo-text {
+            display: none;
         }
 
         .nav-links {
@@ -342,6 +346,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
+            margin-top: 1rem;
         }
 
         .skill-card {
@@ -351,6 +356,9 @@
             box-shadow: var(--shadow-md);
             border: 1px solid var(--border);
             transition: all 0.3s;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
         }
 
         .skill-card:hover {
@@ -370,6 +378,7 @@
             color: white;
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            flex-shrink: 0;
         }
 
         .skill-card h3 {
@@ -383,6 +392,7 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         /* Projects Grid */
@@ -762,6 +772,11 @@
             .projects-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .skill-card {
+                min-height: auto;
             }
 
             .timeline {
@@ -778,16 +793,42 @@
                 padding: 0 1rem;
             }
 
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+
+            .avatar-img {
+                width: 120px;
+                height: 120px;
+            }
+
             .hero-title {
                 font-size: 1.75rem;
             }
 
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+            }
+
             .stats {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             .section-header {
                 font-size: 1.5rem;
+            }
+
+            .skill-card,
+            .project-card,
+            .contact-card {
+                padding: 1.5rem;
             }
         }
 
@@ -817,7 +858,7 @@
         <nav class="container">
             <div class="logo">
                 <div class="logo-icon">AN</div>
-                <span>Aysan Nazarmohammadi</span>
+                <span class="logo-text">Aysan Nazarmohammadi</span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
