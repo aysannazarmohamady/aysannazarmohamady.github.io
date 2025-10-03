@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aysan Nazarmohammadi | Data Scientist & AI Specialist</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-purple: #8b5cf6;
-            --dark-purple: #6d28d9;
-            --light-purple: #a78bfa;
-            --purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --bg-light: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --white: #ffffff;
-            --border-light: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --primary-light: #a78bfa;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -28,91 +33,91 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
 
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(15px);
-            position: fixed;
+            background: var(--bg-primary);
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
-            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.99);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 0;
+            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary-purple);
-            text-shadow: 0 1px 3px rgba(139, 92, 246, 0.3);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 0.5rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
             padding: 0.5rem 1rem;
-            border-radius: 8px;
+            border-radius: 6px;
+            transition: all 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--primary-purple);
-            background: rgba(139, 92, 246, 0.1);
+            color: var(--primary);
+            background: rgba(124, 58, 237, 0.1);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--primary-purple);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 80px;
-            padding: 6rem 0;
-            background: var(--purple-gradient);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 0;
             color: white;
             position: relative;
             overflow: hidden;
@@ -125,38 +130,61 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="4"/></g></svg>');
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>');
+            opacity: 0.5;
         }
 
         .hero-content {
-            text-align: center;
             position: relative;
             z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        .hero-avatar {
+            flex-shrink: 0;
+        }
+
+        .avatar-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
         }
 
-        .hero .subtitle {
+        .hero-subtitle {
             font-size: 1.5rem;
             font-weight: 400;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
+            margin-bottom: 1rem;
+            opacity: 0.95;
         }
 
-        .hero p {
+        .hero-description {
             font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
             line-height: 1.7;
         }
 
-        .cta-buttons {
+        .hero-cta {
             display: flex;
             gap: 1rem;
             justify-content: center;
@@ -164,182 +192,228 @@
         }
 
         .btn {
-            padding: 14px 32px;
-            border: none;
+            padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
             background: rgba(255, 255, 255, 0.2);
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--primary-purple);
-        }
-
         .btn-secondary:hover {
-            background: var(--bg-light);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            background: var(--bg-primary);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-items {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            color: var(--primary);
+        }
+
+        .contact-item i {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            color: var(--primary);
+        }
+
+        .divider {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border), transparent);
+        }
+
+        .contact-title {
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         /* Sections */
         .section {
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
+        .section-header {
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-            position: relative;
+            margin-bottom: 2.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .section-title::after {
+        .section-header::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--primary-purple);
-            border-radius: 2px;
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), transparent);
         }
 
-        /* About Section */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
+        /* Stats */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .stat-item {
-            text-align: center;
-            background: var(--white);
+        .stat-card {
+            background: var(--bg-primary);
             padding: 2rem;
             border-radius: 12px;
+            text-align: center;
             box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-light);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
 
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary-purple);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: block;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
-        /* Skills Section */
-        .skills-section {
-            background: var(--white);
-        }
-
+        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .skill-card {
-            background: var(--white);
+            background: var(--bg-primary);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--light-purple);
+            border-color: var(--primary-light);
         }
 
         .skill-icon {
-            font-size: 2.5rem;
-            color: var(--primary-purple);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
         .skill-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
         }
 
         .skill-card p {
-            color: var(--text-light);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             line-height: 1.6;
         }
 
-        /* Projects Section */
+        /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
         }
 
         .project-card {
-            background: var(--white);
+            background: var(--bg-primary);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
 
         .project-header {
-            background: var(--purple-gradient);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             padding: 1.5rem;
         }
 
         .project-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
@@ -349,8 +423,9 @@
         }
 
         .project-body p {
-            color: var(--text-light);
+            color: var(--text-secondary);
             margin-bottom: 1rem;
+            font-size: 0.9rem;
             line-height: 1.6;
         }
 
@@ -361,157 +436,100 @@
         }
 
         .tag {
-            background: var(--light-purple);
-            color: white;
-            padding: 0.3rem 0.8rem;
+            background: var(--bg-secondary);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
+            border: 1px solid var(--border);
         }
 
-        /* Experience Section */
-        .experience-section {
-            background: var(--white);
-        }
-
+        /* Experience Timeline */
         .timeline {
             position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+            padding-left: 2rem;
         }
 
-        .timeline::after {
+        .timeline::before {
             content: '';
             position: absolute;
-            width: 2px;
-            background: var(--border-light);
+            left: 0;
             top: 0;
             bottom: 0;
-            left: 50%;
-            margin-left: -1px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
         }
 
         .timeline-item {
-            padding: 20px 40px;
             position: relative;
-            background-color: inherit;
-            width: 50%;
+            padding-bottom: 2rem;
+            margin-left: 1rem;
         }
 
-        .timeline-item::after {
+        .timeline-item::before {
             content: '';
             position: absolute;
-            width: 16px;
-            height: 16px;
-            right: -8px;
-            background-color: var(--primary-purple);
-            border: 3px solid var(--white);
-            top: 20px;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border: 3px solid var(--bg-primary);
             border-radius: 50%;
-            z-index: 1;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -8px;
+            box-shadow: 0 0 0 3px var(--border);
         }
 
         .timeline-content {
-            background: var(--white);
-            padding: 2rem;
+            background: var(--bg-primary);
+            padding: 1.5rem;
             border-radius: 12px;
             box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-light);
-            position: relative;
+            border: 1px solid var(--border);
         }
 
         .timeline-content h3 {
-            color: var(--text-dark);
+            font-size: 1.1rem;
             font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
         .timeline-content h4 {
-            color: var(--primary-purple);
-            font-weight: 500;
-            margin-bottom: 1rem;
             font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
         }
 
         .timeline-content p {
-            color: var(--text-light);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             line-height: 1.6;
         }
 
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .contact-item {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-light);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            color: var(--primary-purple);
-            margin-bottom: 1rem;
-        }
-
-        .contact-item h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .contact-item a {
-            color: var(--primary-purple);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--dark-purple);
-        }
-
-        /* Chat Bot Section */
+        /* Chatbot Section */
         .chatbot-section {
-            background: var(--purple-gradient);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            text-align: center;
         }
 
         .chatbot-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+        }
+
+        .chatbot-card {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
             backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .chat-header {
-            margin-bottom: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
         }
 
         .chat-header h3 {
@@ -520,21 +538,22 @@
         }
 
         .chat-messages {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            min-height: 200px;
-            max-height: 300px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            min-height: 250px;
+            max-height: 400px;
             overflow-y: auto;
-            text-align: left;
         }
 
         .message {
             margin-bottom: 1rem;
-            padding: 0.8rem 1rem;
+            padding: 0.75rem 1rem;
             border-radius: 12px;
-            max-width: 80%;
+            max-width: 85%;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         .message.user {
@@ -548,25 +567,32 @@
             margin-right: auto;
         }
 
+        .message strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            opacity: 0.8;
+            font-size: 0.85rem;
+        }
+
         .chat-input-container {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .chat-input {
             flex: 1;
-            padding: 12px 16px;
+            padding: 0.75rem 1rem;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 1rem;
+            font-size: 0.95rem;
             outline: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
         }
 
         .chat-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .chat-input:focus {
@@ -575,45 +601,197 @@
         }
 
         .chat-send {
-            padding: 12px 20px;
+            padding: 0.75rem 1.5rem;
             background: rgba(255, 255, 255, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 25px;
             color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
+            font-weight: 600;
         }
 
         .chat-send:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-1px);
         }
 
         .chat-status {
+            text-align: center;
             margin-top: 1rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.8;
         }
 
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
 
+        .contact-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                box-shadow: var(--shadow-lg);
+                flex-direction: column;
+                padding: 1rem 0;
+                border-top: 1px solid var(--border);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 1rem 1.5rem;
+                border-radius: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .avatar-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .contact-items {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .divider {
+                display: none;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                margin-left: 0.5rem;
             }
         }
 
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                font-size: 1.5rem;
+            }
         }
 
-        /* Scrollbar Styling */
+        /* Scrollbar */
         .chat-messages::-webkit-scrollbar {
             width: 6px;
         }
@@ -637,7 +815,10 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">Aysan Nazarmohammadi</div>
+            <div class="logo">
+                <div class="logo-icon">AN</div>
+                <span>Aysan Nazarmohammadi</span>
+            </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -656,64 +837,92 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Aysan Nazarmohammadi</h1>
-                <p class="subtitle">Data Scientist & AI Specialist</p>
-                <p>Transforming challenges into intelligent AI solutions with 6+ years of experience. Expert in Zero-to-Production delivery, Machine Learning, and Generative AI technologies.</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        View My Work
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
-                    </a>
+                <div class="hero-avatar">
+                    <img src="https://avatars.githubusercontent.com/u/30371881?v=4" alt="Aysan Nazarmohammadi" class="avatar-img">
+                </div>
+                <div class="hero-text">
+                    <h1 class="hero-title">Aysan Nazarmohammadi</h1>
+                    <p class="hero-subtitle">Data Scientist & AI Specialist</p>
+                    <p class="hero-description">
+                        Transforming challenges into intelligent AI solutions with 6+ years of experience in Machine Learning, Generative AI, and NLP. Expert in Zero-to-Production delivery and creative problem solving.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Bar -->
+    <div class="contact-bar">
+        <div class="container">
+            <div class="contact-items">
+                <a href="mailto:aysan.nazarmohamady@yahoo.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>aysan.nazarmohamady@yahoo.com</span>
+                </a>
+                <a href="tel:+989361867750" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+98 936 186 7750</span>
+                </a>
+                <a href="https://linkedin.com/in/aysan-nazarmohammadi" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/aysannazarmohamady" target="_blank" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <div class="divider"></div>
+                <span class="contact-title">Keep in touch!</span>
+            </div>
+        </div>
+    </div>
+
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <p>
-                    I'm a passionate Data Scientist specializing in transforming complex challenges into intelligent AI solutions. 
-                    With extensive experience in storytelling, I excel at extracting strategic insights from data and communicating 
-                    complex concepts in accessible language.
-                </p>
-                <p>
-                    My expertise spans Machine Learning, Generative AI, and NLP, with a proven track record of delivering 
-                    data-driven solutions that bridge technical excellence and business objectives.
-                </p>
-                
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">6+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">99%</span>
-                        <span class="stat-label">AI Detection Accuracy</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">200+</span>
-                        <span class="stat-label">Professionals Impacted</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">30%</span>
-                        <span class="stat-label">Engagement Improvement</span>
-                    </div>
+            <h2 class="section-header">About Me</h2>
+            <p style="max-width: 900px; margin: 0 auto 3rem; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+                I'm a passionate Data Scientist specializing in transforming complex challenges into intelligent AI solutions. 
+                With extensive experience in storytelling, I excel at extracting strategic insights from data and communicating 
+                complex concepts in accessible language. My expertise spans Machine Learning, Generative AI, and NLP, with a 
+                proven track record of delivering data-driven solutions that bridge technical excellence and business objectives.
+            </p>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">99%</span>
+                    <span class="stat-label">AI Detection Accuracy</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Professionals Impacted</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">30%</span>
+                    <span class="stat-label">Engagement Improvement</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section skills-section">
+    <section id="skills" class="section" style="background: var(--bg-primary);">
         <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
+            <h2 class="section-header">Skills & Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon">
@@ -750,7 +959,7 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-header">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-header">
@@ -763,7 +972,6 @@
                             <span class="tag">XGBoost</span>
                             <span class="tag">NLTK</span>
                             <span class="tag">Streamlit</span>
-                            <span class="tag">SMOTE</span>
                         </div>
                     </div>
                 </div>
@@ -778,7 +986,6 @@
                             <span class="tag">LSTM</span>
                             <span class="tag">Feature Engineering</span>
                             <span class="tag">Time Series</span>
-                            <span class="tag">Regularization</span>
                         </div>
                     </div>
                 </div>
@@ -792,7 +999,6 @@
                         <div class="project-tags">
                             <span class="tag">Streamlit</span>
                             <span class="tag">Groq LLM</span>
-                            <span class="tag">Python</span>
                             <span class="tag">NLP</span>
                         </div>
                     </div>
@@ -807,7 +1013,6 @@
                         <div class="project-tags">
                             <span class="tag">FAISS</span>
                             <span class="tag">LangChain</span>
-                            <span class="tag">gRPC</span>
                             <span class="tag">RAG</span>
                         </div>
                     </div>
@@ -817,9 +1022,9 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section experience-section">
+    <section id="experience" class="section" style="background: var(--bg-primary);">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
+            <h2 class="section-header">Professional Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -851,28 +1056,31 @@
     <!-- Chatbot Section -->
     <section id="chatbot" class="section chatbot-section">
         <div class="container">
-            <h2 class="section-title">AI Assistant</h2>
+            <h2 class="section-header" style="color: white;">AI Assistant</h2>
             <div class="chatbot-container">
-                <div class="chat-header">
-                    <h3><i class="fas fa-comments"></i> Chat with My AI Assistant</h3>
-                    <p>Ask me anything about my work, experience, or projects!</p>
-                </div>
-                
-                <div class="chat-messages" id="chatMessages">
-                    <div class="message bot">
-                        <strong>AI Assistant:</strong> Hello! I'm Aysan's AI assistant. Feel free to ask me anything about her background, projects, or experience. How can I help you today?
+                <div class="chatbot-card">
+                    <div class="chat-header">
+                        <h3><i class="fas fa-comments"></i> Chat with My AI Assistant</h3>
+                        <p style="opacity: 0.9;">Ask me anything about my work, experience, or projects!</p>
                     </div>
-                </div>
-                
-                <div class="chat-input-container">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message here..." maxlength="500">
-                    <button class="chat-send" id="chatSend">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-                
-                <div class="chat-status" id="chatStatus">
-                    Ready to chat! (API connection will be configured soon)
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot">
+                            <strong>AI Assistant:</strong>
+                            Hello! I'm Aysan's AI assistant. Feel free to ask me anything about her background, projects, or experience. How can I help you today?
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Type your message here..." maxlength="500">
+                        <button class="chat-send" id="chatSend">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="chat-status" id="chatStatus">
+                        Ready to chat! (API connection will be configured soon)
+                    </div>
                 </div>
             </div>
         </div>
@@ -881,39 +1089,38 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
+            <h2 class="section-header">Let's Connect</h2>
             <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
                     <a href="mailto:aysan.nazarmohamady@yahoo.com">aysan.nazarmohamady@yahoo.com</a>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
                     <h3>Phone</h3>
                     <a href="tel:+989361867750">+98 936 186 7750</a>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
                     <h3>LinkedIn</h3>
                     <a href="https://linkedin.com/in/aysan-nazarmohammadi" target="_blank">aysan-nazarmohammadi</a>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
+                <div class="contact-card">
+                    <i class="fab fa-github"></i>
                     <h3>GitHub</h3>
                     <a href="https://github.com/aysannazarmohamady" target="_blank">aysannazarmohamady</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aysan Nazarmohammadi. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // Mobile menu toggle
@@ -942,17 +1149,7 @@
             });
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('nav')) {
-                navLinks.classList.remove('active');
-                const icon = mobileMenuToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -966,43 +1163,12 @@
             });
         });
 
-        // Header scroll effect with better visibility
-        function updateHeaderOnScroll() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }
-
-        // Animate elements on scroll with better performance
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    observer.unobserve(entry.target); // Stop observing once animated
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections and cards
-        document.querySelectorAll('.section, .skill-card, .project-card, .timeline-item, .stat-item').forEach(el => {
-            observer.observe(el);
-        });
-
         // Chat functionality
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const chatSend = document.getElementById('chatSend');
         const chatStatus = document.getElementById('chatStatus');
 
-        // Placeholder responses for demo
         const responses = [
             "That's a great question! Aysan has extensive experience in AI and machine learning, with over 6 years in the field.",
             "Aysan specializes in transforming complex challenges into intelligent AI solutions, particularly in NLP and generative AI.",
@@ -1027,10 +1193,8 @@
                 addMessage(message, true);
                 chatInput.value = '';
                 
-                // Show typing indicator
                 chatStatus.textContent = 'AI Assistant is typing...';
                 
-                // Simulate AI response (replace with actual API call later)
                 setTimeout(() => {
                     const randomResponse = responses[Math.floor(Math.random() * responses.length)];
                     addMessage(randomResponse);
@@ -1046,80 +1210,39 @@
             }
         });
 
-        // Auto-resize chat input and prevent zoom on iOS
-        chatInput.addEventListener('input', function() {
-            if (this.value.length > 400) {
-                this.style.fontSize = '0.9rem';
-            } else {
-                this.style.fontSize = window.innerWidth <= 768 ? '16px' : '1rem';
-            }
-        });
-
-        // Add some welcome messages after page load
+        // Welcome message
         window.addEventListener('load', function() {
             setTimeout(() => {
-                addMessage("👋 Welcome! I can answer questions about Aysan's projects, experience, or technical skills.");
+                addMessage("Welcome! I can answer questions about Aysan's projects, experience, or technical skills.");
             }, 2000);
         });
 
-        // Viewport height fix for mobile browsers
-        function setVhProperty() {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        setVhProperty();
-        window.addEventListener('resize', setVhProperty);
-        window.addEventListener('orientationchange', setVhProperty);
-
-        // Lazy loading for better performance
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        observer.unobserve(img);
-                    }
-                });
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    observer.unobserve(entry.target);
+                }
             });
+        }, observerOptions);
 
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // Performance optimization: Debounce scroll events
-        let ticking = false;
-        function updateOnScroll() {
-            updateHeaderOnScroll();
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(updateOnScroll);
-                ticking = true;
-            }
+        document.querySelectorAll('.stat-card, .skill-card, .project-card, .timeline-item, .contact-card').forEach(el => {
+            observer.observe(el);
         });
-
-        // API Integration placeholder (to be replaced with actual API)
-        async function callChatAPI(message) {
-            // This will be replaced with actual API call
-            // const response = await fetch('YOUR_API_ENDPOINT', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ message: message })
-            // });
-            // const data = await response.json();
-            // return data.response;
-            
-            // For now, return a placeholder
-            return responses[Math.floor(Math.random() * responses.length)];
-        }
     </script>
 </body>
 </html>
